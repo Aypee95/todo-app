@@ -4,13 +4,13 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function addTask() {
-    var taskInput = document.getElementById("taskInput");
-    var taskText = taskInput.value.trim();
+    const taskInput = document.getElementById("taskInput");
+    const taskText = taskInput.value.trim();
 
     if (taskText !== "") {
-        var todoList = document.getElementById("todoList");
+        const todoList = document.getElementById("todoList");
 
-        var li = document.createElement("li");
+        const li = document.createElement("li");
         li.className = "todoItem";
         li.innerHTML = `
             <span>${taskText}</span>
@@ -28,7 +28,7 @@ function addTask() {
 }
 
 function removeTask(button) {
-    var todoItem = button.closest(".todoItem");
+    const todoItem = button.closest(".todoItem");
     todoItem.remove();
 
     // Save tasks to localStorage after removing a task
@@ -36,8 +36,8 @@ function removeTask(button) {
 }
 
 function saveTasks() {
-    var todoList = document.getElementById("todoList");
-    var tasks = [];
+    const todoList = document.getElementById("todoList");
+    const tasks = [];
 
     // Extract task text from each list item and store in the tasks array
     todoList.querySelectorAll(".todoItem span").forEach(function (task) {
@@ -49,12 +49,12 @@ function saveTasks() {
 }
 
 function loadTasks() {
-    var todoList = document.getElementById("todoList");
-    var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    const todoList = document.getElementById("todoList");
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
     // Create list items for each task in the tasks array
     tasks.forEach(function (taskText) {
-        var li = document.createElement("li");
+        const li = document.createElement("li");
         li.className = "todoItem";
         li.innerHTML = `
             <span>${taskText}</span>
